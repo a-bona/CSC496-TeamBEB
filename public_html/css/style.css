@@ -1,0 +1,99 @@
+a {
+    color: #009688;
+}
+
+.sideNav {
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #616161;
+  overflow-x: hidden;
+
+}
+
+.sideNav a {
+    padding: 8px 0px 10px 0px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+    color: white;
+
+}
+
+.sideNav a:hover {
+    background-color: grey;
+}
+
+.nameBanner {
+    background-color: #009688;
+    color: white;
+    opacity: 0.7;
+}
+.pageBanner {
+    color: white;
+    background-color: #009688;
+}
+
+#loginBG {
+    background-color: #616161;
+}
+
+.loginBox {
+    margin-top: 100px;
+    height: 450px;
+    width: 400px;
+    padding: 40px 0px 20px 0px;
+    background-color: #e0e0e0;
+    box-shadow: 2px 2px 2px 1px grey; 
+}
+
+.center {
+    text-align: center;
+}
+
+
+.input {
+    position: relative;
+    width: 180px;
+    margin-top: 30px;
+    left: 15px;
+}
+
+#logButton {
+    background-color: #009688;
+    width: 180px;
+    color: white;
+    border: none;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+
+#loginHeader {
+    color: #009688;
+}
+
+.loginImg {
+    position: relative;
+    left: 20px;
+    height: 20px;
+    width: 20px;  
+}
+
+.searchBanner {
+    background-color: #cccccc;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.searchItems {
+    margin-bottom: 7px;
+    margin-top: 5px;
+    float: right;
+}
+
+.tableLookup {
+    margin: auto;
+}
