@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Master</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-2 nameBanner">
+            <h3>Software X</h3>
+        </div>
+        <div class="col-xs-10 pageBanner">
+          <h3>Customer Master</h3>
+        </div>
+      </div>
+      <div class="row">
+          <ul class="col-xs-2 ulNav">
+            <li><a href=""><i class="fa fa-bars"></i>Menu</a></li>
+            <li><a href=""><i class="fa fa-home"></i>Dashboard</a></li>
+            <li><a href=""><i class="fa fa-users"></i>Employees</a></li>
+            <li><a href=""><i class="fa fa-building"></i>Customers</a></li>
+            <li><a href=""><i class="fa fa-calendar"></i>Schedule</a></li>
+            <li><a href=""><i class="fa fa-cogs"></i>Settings</a></li>
+            <li><a href=""><i class="fa fa-power-off"></i>Logout</a></li>
+          </ul>
+        <div class="col-xs-10 searchBanner">
+          <div class="tab">
+            <button class="tablinks">Main</button>
+            <button class="tablinks">Jobs</button>
+            <button class="tablinks">Employees</button>
+            <button class="tablinks">History</button>
+            <button class="tablinks">Billing Profile</button>
+          </div>
+        </div>
+        <div class="col-xs-10" class="pagecontent">
+          <div class="col-xs-2" id="firstColumnPC">
+              <label class="pageLabels" for="customerName">Customer Name</label><br>
+              <label class="pageLabels" for="phone">Phone</label><br>
+              <label class="pageLabels" for="address">Address</label><br>
+              <label class="pageLabels" for="website">Website</label><br>
+              <label class="pageLabels" for="email">Email</label><br>
+          </div>
+          <div class="col-xs-3" id="entryColumn">
+              <input class="pageEntry" type="text" name="name">
+              <input class="pageEntry" type="text" name="phone">
+              <input class="pageEntry" type="text" name="address">
+              <input class="pageEntry" type="text" name="website">
+              <input class="pageEntry" type="text" name="email">
+          </div>
+          <div class="col-xs-2" id="secondColumnPC">
+              <label class="pageLabels" for="divison">Divison</label><br>
+              <label class="pageLabels" for="city">City</label><br>
+              <label class="pageLabels" for="state">State</label><br>
+              <label class="pageLabels" for="county">County</label><br>
+              <label class="pageLabels" for="country">Country</label><br>
+          </div>
+          <div class="col-xs-3" id="entryColumn">
+              <input class="pageEntry" type="text" name="divison">
+              <input class="pageEntry" type="text" name="city">
+              <input class="pageEntry" type="text" name="state">
+              <input class="pageEntry" type="text" name="county">
+              <select class="pageEntry" name="country">
+                  <option value="canada">Canada</option>
+                  <option value="india">India</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="United States" selected>United States</option>
+                </select>
+          </div>
+
+        </div>
+
+        <div class="col-xs-10" class="contactContent">        
+          <h3 class="headerLabel">Contacts</h3> 
+          <div class="contactSearch">
+
+              <form>
+                  <button class="searchItems" type="submit">Search</button> 
+                  <input class="searchItems searchBox" type="text" name="searchBox" placeholder="search">
+              </form>
+              <a href="newContact.html" class="searchItems"><i class="fa fa-plus fa-2x"></i></a>
+          </div>
+          <table class="table-hover tableLookup">
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Job Title</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Email</th>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+            </table> 
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
