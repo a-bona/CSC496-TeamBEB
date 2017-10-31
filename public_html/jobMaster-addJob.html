@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Master</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 pageBanner">
+          <h3>Add Job</h3>
+        </div>
+        <div class="col-xs-12">
+        <h3 class="headerLabel">New Job</h3>
+          <div class="col-xs-3" id="firstColumnPC">
+              <label class="pageLabels" for="jobTitle">Job Title</label><br>
+              <label class="pageLabels" for="companyName">Company Name</label><br>
+              <label class="pageLabels" for="department">Department</label><br>
+              <label class="pageLabels" for="startDate">Start Date</label><br>
+              <label class="pageLabels" for="endDate">End Date</label><br>
+          </div>
+          <div class="col-xs-3" id="entryColumn">
+              <input class="pageEntry" type="text" name="jobTitle">
+              <input class="pageEntry" type="text" name="companyName">
+              <input class="pageEntry" type="text" name="department">
+              <input class="pageEntry" type="text" name="startDate">
+              <input class="pageEntry" type="text" name="endDate">
+          </div>
+          <div class="col-xs-3" id="secondColumnPC">
+              <label class="pageLabels" for="salary">Salary/Hourly</label><br>
+              <label class="pageLabels" for="city">City</label><br>
+              <label class="pageLabels" for="state">State</label><br>
+              <label class="pageLabels" for="county">County</label><br>
+              <label class="pageLabels" for="country">Country</label><br>
+          </div>
+          <div class="col-xs-3" id="entryColumn">
+              <input class="pageEntry" type="text" name="divison">
+              <input class="pageEntry" type="text" name="city">
+              <input class="pageEntry" type="text" name="state">
+              <input class="pageEntry" type="text" name="county">
+              <select class="pageEntry" name="country">
+                  <option value="canada">Canada</option>
+                  <option value="india">India</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="United States" selected>United States</option>
+                </select>
+          </div>
+        </div>
+
+        <div class="col-xs-12" class="Requirements">        
+            <h3 class="headerLabel">Requirements</h3>
+            <textarea rows="4" cols="170">
+                    </textarea>
+        </div>
+        <div class="col-xs-12" class="jobDuties">        
+            <h3 class="headerLabel">Job Duties</h3>
+            <textarea rows="4" cols="170">
+                    </textarea>
+        </div>
+
+        <div class="col-xs-12" class="pagecontent">
+          <div class="col-xs-6">
+            <h3 class="headerLabel">Primary Contact</h3>          
+            <div class="col-xs-3" id="firstColumnPC">
+              <label class="pageLabels" for="fname">First Name</label><br>
+              <label class="pageLabels" for="lname">Last Name</label><br>
+              <label class="pageLabels" for="jobTitle">Job Title</label><br>
+              <label class="pageLabels" for="department">Department</label><br>
+              <label class="pageLabels" for="phone">Phone</label><br>
+              <label class="pageLabels" for="email">Email</label><br>
+          </div>
+          <div class="col-xs-3" id="entryColumn">
+              <input class="pageEntry" type="text" name="fname">
+              <input class="pageEntry" type="text" name="lname">
+              <input class="pageEntry" type="text" name="jobTitle">
+              <input class="pageEntry" type="text" name="department">
+              <input class="pageEntry" type="text" name="phone">
+              <input class="pageEntry" type="text" name="email">
+          </div>
+          </div>
+          <div class="col-xs-6">
+              <h3 class="headerLabel">Secondary Contact</h3>          
+              <div class="col-xs-3" id="firstColumnPC">
+                <label class="pageLabels" for="fname">First Name</label><br>
+                <label class="pageLabels" for="lname">Last Name</label><br>
+                <label class="pageLabels" for="jobTitle">Job Title</label><br>
+                <label class="pageLabels" for="department">Department</label><br>
+                <label class="pageLabels" for="phone">Phone</label><br>
+                <label class="pageLabels" for="email">Email</label><br>
+            </div>
+            <div class="col-xs-3" id="entryColumn">
+                <input class="pageEntry" type="text" name="fname">
+                <input class="pageEntry" type="text" name="lname">
+                <input class="pageEntry" type="text" name="jobTitle">
+                <input class="pageEntry" type="text" name="department">
+                <input class="pageEntry" type="text" name="phone">
+                <input class="pageEntry" type="text" name="email">
+            </div>
+            
+            </div> 
+          </div>
+
+          <div class="col-xs-12" id="buttonDiv">
+              <button type="button" class="buttonClass">Add Job</button> <br><br>
+              <button type="button" class="buttonClass">Cancel</button>   
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
