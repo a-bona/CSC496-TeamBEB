@@ -211,3 +211,26 @@ div.contactSearch form{
 select.pageEntry {
     width: 157px;
 }
+.buttonClass {
+padding-left: 10px;
+padding-right: 10px;
+margin-top: 40px;
+margin-bottom: 40px;
+background-color: #009688;
+color: white;
+font-weight: bold;
+font-style: center;
+padding-top: 4px;
+padding-bottom: 4px;
+position: absolute;
+
+}
+#buttonDiv {
+text-align: center;
+}
+#leftButtonDiv {
+    text-align: right;
+}
+#rightButtonDiv {
+    text-align: right;
+}
