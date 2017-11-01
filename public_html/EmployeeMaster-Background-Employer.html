@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styleAltered.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-2 nameBanner">
+            <h3>Software X</h3>
+        </div>
+        <div class="col-xs-10 pageBanner">
+          <h3>Employer - </h3>
+        </div>
+      </div>
+      <div class="row">
+          <ul class="col-xs-2 ulNav">
+            <li><a href=""><i class="fa fa-bars"></i>Menu</a></li>
+            <li><a href=""><i class="fa fa-home"></i>Dashboard</a></li>
+            <li><a href=""><i class="fa fa-users"></i>Employees</a></li>
+            <li><a href=""><i class="fa fa-building"></i>Customers</a></li>
+            <li><a href=""><i class="fa fa-calendar"></i>Schedule</a></li>
+            <li><a href=""><i class="fa fa-cogs"></i>Settings</a></li>
+            <li><a href=""><i class="fa fa-power-off"></i>Logout</a></li>
+          </ul>
+        <div class="col-xs-10 searchBanner">
+          <div class="tab">
+            <button class="tablinks">Main</button>
+            <button class="tablinks">Description</button>
+            <button class="tablinks">Assigned</button>
+            <button class="tablinks">History</button>
+          </div>
+        </div>
+        <div class="col-xs-10" class="pagecontent">
+            <div class="col-xs-2" id="firstColumnPC">
+              <label class="pageLabels" for="fname">Job Title:</label><br>
+              <label class="pageLabels" for="lname">Company Name:</label><br>
+              <label class="pageLabels" for="salary">Salary/Pay Rate:</label><br>
+              <label class="pageLabels" for="address">Address:</label><br>
+              <label class="pageLabels" for="city">City:</label><br>
+              <label class="pageLabels" for="state">State:</label><br>
+              <label class="pageLabels" for="phone">Phone:</label><br>
+              <br>
+              <h3 class="headerLabel">Reference</h3>
+              <label class="pageLabels" for="reference">Reference Allowed:</label><br>
+              <label class="pageLabels" for="completed">Completed:</label><br>
+              <label class="pageLabels" for="date">Date:</label><br>
+              <br><br>
+              <label class="pageLabels" for="performance">Perfomance:</label><br>
+              <label class="pageLabels" for="regire">Rehire:</label><br>
+                      <h3 class="headerLabel">Comments</h3>
+                      <textarea rows="4" cols="100"></textarea>
+                      <form>
+                          <br>
+                          <button class=".btn-primary" name="add" type="button">Add Comment</button>
+                      </form>
+
+          </div>
+          <div class="col-xs-3" id="entryColumn">
+              <input class="pageEntry" type="text" name="jobTitle">
+              <input class="pageEntry" type="text" name="companyName">
+              <input class="pageEntry" type="text" name="salary">
+              <input class="pageEntry" type="text" name="address">
+              <input class="pageEntry" type="text" name="city">
+              <input class="pageEntry" type="text" name="state">
+              <input class="pageEntry" type="text" name="phone">
+              <br><br><br><br>
+              <div class="checkbox">
+                <label><input type="checkbox" value="">Option 1</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="">Option 2</label>
+              </div>
+              <div class='input-group date' id='datetimepicker1'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+              <br>
+              <select class="pageEntry" name="type">
+                        <option value="">x</option>
+                        <option value="">y</option>
+                        <option value="">z</option>
+                        <option value="a" selected>a</option>
+              </select>
+              <div class="radio">
+                <label><input type="radio" name="optradio">Option 1</label>
+                <label><input type="radio" name="optradio">Option 2</label>
+              </div>
+
+          </div>
+
+          <div class="col-xs-2" id="firstColumnPC">
+            <label class="pageLabels" for="email">Country:</label><br>
+            <label class="pageLabels" for="type">Start Date:</label><br>
+            <label class="pageLabels" for="type">End Date:</label><br>
+            <br><br><br><br><br><br><br>
+            <label class="pageLabels" for="type">Contact Title:</label><br>
+            <label class="pageLabels" for="type">Contact Name:</label><br>
+            <br><br><br><br>
+            <label class="pageLabels" for="type">Attitude:</label><br>
+            <label class="pageLabels" for="type">Attendance:</label><br>
+          </div>
+      <div class="col-xs-2" id="entryColumn">
+          <select class="pageEntry" name="type">
+                    <option value="">x</option>
+                    <option value="">y</option>
+                    <option value="">z</option>
+                    <option value="a" selected>Select</option>
+          </select>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <br><br><br><br><br><br>
+                <input class="pageEntry" type="text" name="contactTitle">
+                <input class="pageEntry" type="text" name="contactName">
+                <br><br><br><br><br>
+                <select class="pageEntry" name="type">
+                          <option value="">x</option>
+                          <option value="">y</option>
+                          <option value="">z</option>
+                          <option value="a" selected>Select</option>
+                </select>
+                <br>
+                <select class="pageEntry" name="type">
+                          <option value="">x</option>
+                          <option value="">y</option>
+                          <option value="">z</option>
+                          <option value="a" selected>Select</option>
+                </select>
+              </div>
+            </div>
+          </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

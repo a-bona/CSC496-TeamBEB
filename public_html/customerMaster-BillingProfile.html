@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Master</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styleAltered.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-2 nameBanner">
+            <h3>Software X</h3>
+        </div>
+        <div class="col-xs-10 pageBanner">
+          <h3>Customer Master</h3>
+        </div>
+      </div>
+      <div class="row">
+          <ul class="col-xs-2 ulNav">
+            <li><a href=""><i class="fa fa-bars"></i>Menu</a></li>
+            <li><a href=""><i class="fa fa-home"></i>Dashboard</a></li>
+            <li><a href=""><i class="fa fa-users"></i>Employees</a></li>
+            <li><a href=""><i class="fa fa-building"></i>Customers</a></li>
+            <li><a href=""><i class="fa fa-calendar"></i>Schedule</a></li>
+            <li><a href=""><i class="fa fa-cogs"></i>Settings</a></li>
+            <li><a href=""><i class="fa fa-power-off"></i>Logout</a></li>
+          </ul>
+        <div class="col-xs-10 searchBanner">
+          <div class="tab">
+            <button class="tablinks">Main</button>
+            <button class="tablinks">Jobs</button>
+            <button class="tablinks">Employees</button>
+            <button class="tablinks">History</button>
+            <button class="tablinks">Billing Profile</button>
+          </div>
+        </div>
+        <div class="col-xs-10" class="pagecontent">
+          <h2 class="headerLabel">Billing Profile</h2>
+          <div class="col-xs-2" id="firstColumnPC">
+              <label class="pageLabels" for="name">Name</label><br>
+              <label class="pageLabels" for="phone">Phone</label><br>
+              <label class="pageLabels" for="address">Address</label><br>
+              <label class="pageLabels" for="city">City</label><br>
+              <label class="pageLabels" for="state">State</label><br>
+              <label class="pageLabels" for="postalCode">Postal Code</label><br>
+              <label class="pageLabels" for="email">Email</label><br>
+              <label class="pageLabels" for="paymentMethod">Payment Method</label><br>
+              <label class="pageLabels" for="date">Date</label><br>
+              <form>
+                  <br>
+                  <button class=".btn-primary" name="cancel" type="button">Cancel</button>
+                  <button class=".btn-primary" name="save" type="button">Save</button>
+              </form>
+          </div>
+          <div class="col-xs-3" id="entryColumn">
+              <input class="pageEntry" type="text" name="name">
+              <input class="pageEntry" types="text" name="phone">
+              <input class="pageEntry" type="text" name="address">
+              <input class="pageEntry" type="text" name="city">
+              <select class="pageEntry" name="state">
+                  <option value="florida">Florida</option>
+                  <option value="illinois">Illinois</option>
+                  <option value="oklahoma">Oklahoma</option>
+                  <option value="united states" selected>United States</option>
+                </select>
+              <input class="pageEntry" type="text" name="postalCode">
+              <input class="pageEntry" type="text" name="email">
+              <input class="pageEntry" type="text" name="paymentMethod">
+              <input class="pageEntry" type="text" name="date">
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
