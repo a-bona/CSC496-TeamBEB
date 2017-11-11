@@ -303,3 +303,26 @@ li a.tiles:hover {
     color: white;
     text-decoration: none;
 }
+
+.addCJEBanner {
+    background-color: #009688;
+    color: white;
+}
+
+.topBuffer {
+    margin-top: 30px;
+    
+}
+
+.addSubBtn {
+    border-radius: 25px;
+    background-color: #009688;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.txtAddBox {
+    width: 100%;
+    height: 100px;
+}
