@@ -4,51 +4,62 @@
   if(isset($_POST["submit"])) {
     $dbUser = "root";
     $dbPass = "root";
-    $dbName = "csc390";
+    $dbName = "staffingDB";
     $servername = "localhost";
     
     $jobTitle = $_POST["jobTitle"];
-    $cName = $_POST["ComapanyName"];
-    $division = $_POST["divison"];
+    $cName = $_POST["CompanyName"];
+    $division = $_POST["division"];
     $dept = $_POST["department"];
     $wage = $_POST["wage"];
     $sTime = $_POST["sTime"];
     $eTime= $_POST["eTime"];
-    $sDate = $_POST["sDate"];
-    $eDate = $_POST["eDate"];   
+    $sDate = strtotime($_POST["sDate"]);
+    $eDate = strtotime($_POST["eDate"]);
+    $sDate = date('Y-m-d H:i:s', $sDate);
+    $eDate = date('Y-m-d H:i:s', $eDate);  
     $shift = $_POST["shift"];
     $requirements = $_POST["requirements"];
     $jDuties = $_POST["jDuties"];
     
+ 
+    
     $dbh = new PDO("mysql:host=$servername;dbname=$dbName", $dbUser, $dbPass);
-    $sqlGetCustomer= ("SELECT * FROM Customers Where CompanyName = :CompanyName AND Division= :Division");
+    $sqlGetCustomer= ("SELECT * FROM Customers Where Name = :Name AND Division= :Division");
     $query = $dbh->prepare($sqlGetCustomer);
-    $query->bindvalue(':CompanyName', $cName);
-    $query->bindvalue(':Division', $division);
+    $query->bindvalue(":Name", $cName);
+    $query->bindvalue(":Division", $division);
     $success = $query->execute();
     $row = $query->fetch();
     $custId = $row["CustomerID"];
     
-    $sqlAddJob = ("INSERT INTO Jobs (JobTitle, CustomerID, Department, ContactID1, ContactID2, StartDate, EndDate, Shift, Pay, Requirements, Description, Active, Filled)
-                       VALUES (:JobTitle, :CustomerID, :Department, :ContactID1, :ContactID2, :StartDate, :EndDate, :Shift, :Pay, :Requirements, :Description, :Active, :Filled)");  
-    $query = $dbh->prepare($sqlAddJob);
-    $query->bindValue(":JobTitle", $jobTitle);
-    $query->bindvalue(":CustomerID", $custId);
-    $query->bindvalue(":Department", $dept);
-    $query->bindvalue(":ContactID1", NULL);
-    $query->bindValue(":ContactID2", NULL);
-    $query->bindValue(":StartDate", $sDate);
-    $query->bindValue(":EndDate", $eDate);
-    $query->bindValue(":Shift", $shift);
-    $query->bindValue(":Pay", $wage);        
-    $query->bindValue(":Requirements", $requirements);
-    $query->bindValue(":Description", $jDuties);
-    $query->bindValue(":Active", TRUE); 
-    $query->bindValue(":Filled", FALSE);
+    if (!$success) {
+
+        exit("error1");
+    }
     
-    $success = $query->execute();
+    $sqlAddJob = ("INSERT INTO Jobs (JobTitle, CustomerID, Department, ContactID1, ContactID2, StartDate, EndDate, Shift, StartTime, EndTime, Pay, Requirements, Description, Active, Filled)
+                       VALUES (:JobTitle, :CustomerID, :Department, :ContactID1, :ContactID2, :StartDate, :EndDate, :Shift, :StartTime, :EndTime, :Pay, :Requirements, :Description, :Active, :Filled)");  
+    $query2 = $dbh->prepare($sqlAddJob);
+    $query2->bindValue(":JobTitle", $jobTitle);
+    $query2->bindvalue(":CustomerID", $custId);
+    $query2->bindvalue(":Department", $dept);
+    $query2->bindvalue(":ContactID1", NULL);
+    $query2->bindValue(":ContactID2", NULL);
+    $query2->bindValue(":StartDate", $sDate);
+    $query2->bindValue(":EndDate", $eDate);
+    $query2->bindValue(":Shift", $shift);
+    $query2->bindValue(":StartTime", $sTime);
+    $query2->bindValue(":EndTime", $eTime);
+    $query2->bindValue(":Pay", $wage);        
+    $query2->bindValue(":Requirements", $requirements);
+    $query2->bindValue(":Description", $jDuties);
+    $query2->bindValue(":Active", TRUE); 
+    $query2->bindValue(":Filled", FALSE);
+    
+    $success2 = $query2->execute();
         
-    if ($success) {
+    if ($success2) {
 
         header("location: jobLookup.php");   
     }
@@ -76,7 +87,7 @@
       <div class="row pageBanner">
           <h1 class="center">Add Job</h1>
       </div>
-      <form  action="addCustomer.php" method="POST">
+      <form  action="addJob.php" method="POST">
         <div class="row topBuffer">
           <div class="col-md-6">
             <label for="jobTitle">Job Title</label>

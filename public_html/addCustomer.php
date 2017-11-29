@@ -5,17 +5,18 @@
     
     $dbUser = "root";
     $dbPass = "root";
-    $dbName = "csc390";
+    $dbName = "staffingDB";
     $servername = "localhost";
     
     $name = $_POST["name"];
-    $division = $_POST["divison"];
+    $division = $_POST["division"];
     $address = $_POST["address"];
     $city = $_POST["city"];
     $state = $_POST["state"];
     $county = $_POST["county"];
     $website = $_POST["website"];   
     $country = $_POST["country"];
+    $email = $_POST["email"];
     $phone = $_POST["phone"];
     
     $dbh = new PDO("mysql:host=$servername;dbname=$dbName", $dbUser, $dbPass);
@@ -31,6 +32,7 @@
     $query->bindValue(":County", $county);
     $query->bindValue(":Website", $website);
     $query->bindValue(":Country", $country);
+    $query->bindValue(":Email", $email);
     $query->bindValue(":Phone", $phone);        
         
     $success = $query->execute();

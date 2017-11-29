@@ -5,7 +5,7 @@
     
     $dbUser = "root";
     $dbPass = "root";
-    $dbName = "csc390";
+    $dbName = "staffingDB";
     $servername = "localhost";
     
     $fName = $_POST["firstName"];
@@ -28,7 +28,7 @@
     $weekdays = $_POST["weekdays"];
     
     $dbh = new PDO("mysql:host=$servername;dbname=$dbName", $dbUser, $dbPass);
-    $sql = ("INSERT INTO Customers (First_Name, Last_Name, Phone, Email, SSN, Address, City, State, County, Country, IndustryArea, EducationLevel, LiftingAbility, DesiredPay, MinPay, TravelDistance, Weekdays, Weekends, Assigned)
+    $sql = ("INSERT INTO Employees (First_Name, Last_Name, Phone, Email, SSN, Address, City, State, County, Country, IndustryArea, EducationLevel, LiftingAbility, DesiredPay, MinPay, TravelDistance, Weekdays, Weekends, Assigned)
                        VALUES (:First_Name, :Last_Name, :Phone, :Email, :SSN, :Address, :City, :State, :County, :Country, :IndustryArea, :EducationLevel, :LiftingAbility, :DesiredPay, :MinPay, :TravelDistance, :Weekdays, :Weekends, :Assigned)");
          
     $query = $dbh->prepare($sql);
