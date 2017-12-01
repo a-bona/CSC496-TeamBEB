@@ -1,4 +1,42 @@
-
+<?php
+      
+  if(isset($_POST["submit"])) {
+    $dbUser = "root";
+    $dbPass = "";
+    $dbName = "capstone";
+    $servername = "localhost";
+    
+    $FirstName = $_POST["FirstName"];
+    $LastName = $_POST["LastName"];
+    $Username = $_POST["Username"];
+    $Password = $_POST["Password"];
+      $hPassword=md5($Password);
+    $Email = $_POST["Email"];
+    $UserStart = $_POST["UserStart"];
+    
+    $dbh = new PDO("mysql:host=$servername;dbname=$dbName", $dbUser, $dbPass);
+    $sql= ("INSERT INTO Users (FirstName, LastName, Password, Username, Email, UserStart)
+            VALUES (:FirstName, :LastName, :Password, :Username, :Email, :UserStart)");
+    $query = $dbh->prepare($sql);
+    $query->bindvalue(":FirstName", $FirstName);
+    $query->bindvalue(":LastName", $LastName);
+    $query->bindvalue(":Username", $Username);
+    $query->bindvalue(":Password", $hPassword);
+    $query->bindvalue(":Email", $Email);
+    $query->bindvalue(":UserStart", $UserStart);
+        
+    $success = $query->execute();
+    if($success)
+    {
+      header("location: login.php");   
+    }
+    
+    if (!$success) {
+        exit("error1");
+    }
+          
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,83 +44,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styleAltered.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body id="loginBG">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <div class="loginBox center">
-              <h1 id="loginHeader">Registration</h1>
-              <form action="register.php" method="POST">
-                <input class="logInput" type="text" name="FirstName" placeholder="firstname" size='20'>
-                <img class="loginImg" src="images/loginUsername.png"/>
-                <br>
-                <input class="logInput" type="text" name="LastName" placeholder="lastname">
-                <img class="loginImg" src="images/loginUsername.png"/>
-                <br>
-                <input class="logInput" type="text" name="Username" placeholder="username">
-                <img class="loginImg" src="images/loginUsername.png"/>
-                <br>
-                <input class="logInput" type="password" name="Password" placeholder="password">
-                <img class="loginImg" src="images/loginKey.png"/>
-                <br>
-                <input class="logInput" type="text" name="Email" placeholder="email">
-                <img class="loginImg" src="images/loginUsername.png"/>
-                <br>
-                <input class="logInput" type="text" name="UserStart" placeholder="StartDateFormat:####-##-##">
-                <img class="loginImg" src="images/loginUsername.png"/>
-                <br>
-                <input id="logButton" type="submit" value="Submit" name="submitbutton">
-              </form>
+  <body>
+    <div class="container-fluid">
+      <div class="row pageBanner">
+          <h1 class="center">Registration</h1>
+      </div>
+      <form  action="register.php" method="POST">
+        <div class="row topBuffer">
+          <div class="col-md-6">
+            <label for="firstName">First Name</label>
+            <input class="form-control" type="text" name="FirstName" placeholder="First Name">
+          </div>
+          <div class="col-md-6">
+              <label for="lastName">Last Name</label>
+              <input class="form-control" type="text" name="LastName" placeholder="Last Name">
           </div>
         </div>
-      </div>
-    </div>
+        <div class="row topBuffer">
+          <div class="col-md-6">
+            <label for="password">Username</label>
+            <input class="form-control" type="text" name="Username" placeholder="Username">
+          </div>
+          <div class="col-md-6">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" name="Password" placeholder="Password">
+          </div>
+        </div>
+        <div class="row topBuffer">
+          <div class="col-md-6">
+              <label for="email">Email</label>
+              <input class="form-control" type="text" name="Email" placeholder="Email">
+          </div>
+          <div class="col-md-6">
+            <label for="userStart">Start Date</label>
+            <input class="form-control" type="date" name="UserStart" placeholder="yyyy-mm-dd">
+          </div>
+        </div>
+        <br>
+          <div class="center col-md-12">
+              <input class="addSubBtn" type="submit" name="submit" value="Register">
+          </div>
+        </div>
+      </form>
+    </div>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
-<?php
- session_start();
-  //Checking the variables are empty
-  $fname="";
-  $lname="";
-  $username="";
-  $password="";
-  $email="";
-  $userstart="";
-  $errors = array();
-  $_SESSION['success'] = "";
-  //connecting to the DataBase
-  $db = mysqli_connect('localhost', 'root', '', 'Project1');
-
-  if (isset($_POST['submitbutton'])) {
-    // receive all input values from the form
-    $fname = mysqli_real_escape_string($db, $_POST['FirstName']);
-    $lname = mysqli_real_escape_string($db, $_POST['LastName']);
-    $username = mysqli_real_escape_string($db, $_POST['Username']);
-    $password = mysqli_real_escape_string($db, $_POST['Password']);
-    $email = mysqli_real_escape_string($db, $_POST['Email']);
-    $userstart = mysqli_real_escape_string($db, $_POST['UserStart']);
-    // form validation: ensure that the form is correctly filled
-    if (empty($fname)) { array_push($errors, "FirstName is required"); }
-    if (empty($lname)) { array_push($errors, "LastName is required"); }
-    if (empty($username)) { array_push($errors, "Username is required"); }
-    if (empty($password)) { array_push($errors, "Password is required"); }
-    if (empty($email)) { array_push($errors, "Email is required"); }
-    if (empty($userstart)) { array_push($errors, "UserStart is required"); }
-    // register user if there are no errors in the form
-    if (count($errors) == 0) {
-      //encrypt the password before saving in the database
-      $password = md5($password);
-      $query = "INSERT INTO Users (FirstName, LastName, Password, Username, Email, UserStart)
-                  VALUES('$fname', '$lname', '$password', '$username', '$email', '$userstart')";
-      mysqli_query($db, $query);
-
-      $_SESSION['Username'] = $username;
-      $_SESSION['success'] = "You are now logged in";
-      header('location: register.php');
-     }
-   }
-?>
