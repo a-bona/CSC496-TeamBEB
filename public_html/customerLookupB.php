@@ -32,15 +32,30 @@
           <a href="newCustomer.html" class="searchItems"><i class="fa fa-plus fa-2x"></i></a>
           <form>
               <button class="searchItems" type="submit">Search</button>
-              <input class="searchItems searchBox" type="text" name="searchBox" placeholder="search">
+              <input class="searchItems searchBox" type="text" name="searchBox" placeholder="search" id="myInput" onkeyup="myFunction()">
           </form>
-
+          <script>
+          function myFunction() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+        </script>
         </div>
         <div class="col-xs-10">
-            <table class="table-hover tableLookup">
-              <form method="GET">
-                <input type="hidden" value="test" name="f" />
-              </form>
+            <table class="table-hover tableLookup" id="myTable">
             <tr>
               <th>Name</th>
               <th>Division</th>
@@ -54,15 +69,13 @@
               //connecting to the DataBase
               $db = mysqli_connect('localhost', 'root', '', 'Project1');
               $errors = array();
-
               $sql="SELECT * FROM Customers";
-
               $results= mysqli_query($db, $sql);
               $customerMaster = 'customerMaster.php';
               while($row = mysqli_fetch_array($results))
               {
+                "<a href='$customerMaster'>".$row["CustomerID"]."</a>";
                 echo "<tr>
-
                         <td><a href='$customerMaster'>".$row["Name"]."</td></a>
                         <td><a href='$customerMaster'>".$row["Division"]."</td></a>
                         <td><a href='$customerMaster'>".$row["Address"]."</td></a>
@@ -73,7 +86,13 @@
                       </tr>";
               }
               ?>
-
+              <script type="text/javascript">
+              jQuery(document).ready(function($) {
+                  $(".clickable-row").click(function() {
+                      window.location = $(this).data("href");
+                  });
+              });
+              </script>
           </table>
         </div>
       </div>

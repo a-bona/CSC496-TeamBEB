@@ -30,21 +30,37 @@
           </ul>
           <div class="col-xs-10 searchBanner">
             <a href="newJob.html" class="searchItems"><i class="fa fa-plus fa-2x"></i></a>
-            <form>
+            <form action="" method="post">
                 <button class="searchItems" type="submit">Search</button>
-                <input class="searchItems searchBox" type="text" name="searchBox" placeholder="search">
-                <select class="statusDD searchItems" name="status">
-                  <option value="active">Active</option>
-                  <option value="active">Inactive</option>
-                  <option value="active">All</option>
+                <input class="searchItems searchBox" type="text" name="searchBox" placeholder="search" id="myInput" onkeyup="myFunction()">
+                <select class="statusDD searchItems" name="Status">
+                  <option value="1">Active</option>
+                  <option value="0">Inactive</option>
+                  <option value="">All</option>
                 </select>
             </form>
+            <script>
+            function myFunction() {
+              var input, filter, table, tr, td, i;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }
+              }
+            }
+          </script>
           </div>
           <div class="col-xs-10">
-              <table class="table-hover tableLookup">
-                <form method="GET">
-                  <input type="hidden" value="test" name="f" />
-                </form>
+              <table class="table-hover tableLookup" id="myTable">
               <tr>
                 <th>Title</th>
                 <th>Company</th>
@@ -52,33 +68,64 @@
                 <th>State</th>
                 <th>Active</th>
               </tr>
-            <?php
-              //connecting to the DataBase
-              $db = mysqli_connect('localhost', 'root', '', 'Project1');
-              $errors = array();
+              <?php
+                  session_start();
 
-              $sql="SELECT * FROM Jobs";
+                  if(isset($_POST['submit']))
+                  {
+                    $active = $_POST['Status'];
+                    //connecting to the DataBase
+                    $db = mysqli_connect('localhost', 'root', '', 'Project1');
+                    $errors = array();
+                    $sql="SELECT * FROM Jobs WHERE Active = $active ";
+                    $results= mysqli_query($db, $sql);
+                    $jobMaster = 'jobMaster.php';
 
-              $results= mysqli_query($db, $sql);
-              $jobMaster = 'jobMaster.php';
-              while($row = mysqli_fetch_array($results))
-              {
-                echo "<tr>
-
+                  while($row = mysqli_fetch_array($results))
+                  {
+                    "<a href='$jobMaster'>".$row["CustomerID"]."</a>";
+                    echo "<tr>
                         <td><a href='$jobMaster'>".$row["JobTitle"]."</td></a>
                         <td><a href='$jobMaster'>".$row["Department"]."</td></a>
                         <td><a href='$jobMaster'>".$row["City"]."</td></a>
                         <td><a href='$jobMaster'>".$row["State"]."</td></a>
                         <td><a href='$jobMaster'>".$row["Active"]."</td>
-                      </tr>";
-              }
-              ?>
+                        </tr>";
+                  }
+                  }
+                  else
+                  {
+                    $db = mysqli_connect('localhost', 'root', '', 'Project1');
+                    $errors = array();
+                    $sql1="SELECT * FROM Jobs";
+                    $results= mysqli_query($db, $sql1);
+                    $jobMaster = 'jobMaster.php';
 
-          </table>
-        </div>
+                  while($row = mysqli_fetch_array($results))
+                  {
+                    "<a href='$jobMaster'>".$row["CustomerID"]."</a>";
+                    echo "<tr>
+                            <td><a href='$jobMaster'>".$row["JobTitle"]."</td></a>
+                            <td><a href='$jobMaster'>".$row["Department"]."</td></a>
+                            <td><a href='$jobMaster'>".$row["City"]."</td></a>
+                            <td><a href='$jobMaster'>".$row["State"]."</td></a>
+                            <td><a href='$jobMaster'>".$row["Active"]."</td>
+                          </tr>";
+                  }
+                }
+              ?>
+              <script type="text/javascript">
+              jQuery(document).ready(function($) {
+                  $(".clickable-row").click(function() {
+                      window.location = $(this).data("href");
+                  });
+              });
+              </script>
+        </table>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
 </html>

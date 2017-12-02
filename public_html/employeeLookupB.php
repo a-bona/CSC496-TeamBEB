@@ -30,21 +30,37 @@
           </ul>
         <div class="col-xs-10 searchBanner">
           <a href="newemployee.html" class="searchItems"><i class="fa fa-plus fa-2x"></i></a>
-          <form>
-              <button class="searchItems" type="submit">Search</button>
-              <input class="searchItems searchBox" type="text" name="searchBox" placeholder="search">
+          <form action="" method="POST">
+              <button class="searchItems" type="submit" name="submit">Search</button>
+              <input class="searchItems searchBox" type="text" name="searchBox" placeholder="search" id="myInput" onkeyup="myFunction()">
               <select class="statusDD searchItems" name="Assigned">
-                <option value="assigned">Assigned</option>
-                <option value="unassigned">Unassigned</option>
+                <option value="1">Assigned</option>
+                <option value="0">Unassigned</option>
                 <option value="All">All</option>
               </select>
           </form>
         </div>
+        <script>
+        function myFunction() {
+          var input, filter, table, tr, td, i;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+      </script>
         <div class="col-xs-10">
-            <table class="table-hover tableLookup">
-              <form method="GET">
-                <input type="hidden" value="test" name="f" />
-              </form>
+            <table class="table-hover tableLookup" id="myTable">
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
@@ -55,31 +71,61 @@
               <th>Assigned</th>
             </tr>
             <?php
-              //connecting to the DataBase
-              $db = mysqli_connect('localhost', 'root', '', 'Project1');
-              $errors = array();
 
-              $sql="SELECT * FROM Employees";
-
-              $results= mysqli_query($db, $sql);
-              $employeeMaster = 'employeeMaster.php';
-              while($row = mysqli_fetch_array($results))
+              if(isset($_POST['submit']))
               {
-                echo "<tr>
+                $name = $_POST['searchBox'];
+                $assigned = $_POST['Assigned'];
+                $db = mysqli_connect('localhost', 'root', '', 'Project1');
+                $errors = array();
+                $sql="SELECT * FROM Employees WHERE Assigned = $assigned ";
+                $results= mysqli_query($db, $sql);
+                $employeeMaster = 'employeeMaster.php';
 
-                <td><a href='$employeeMaster'>".$row["First_Name"]."</td></a>
-                <td><a href='$employeeMaster'>".$row["Last_Name"]."</td></a>
-                <td><a href='$employeeMaster'>".$row["Phone"]."</td></a>
-                <td><a href='$employeeMaster'>".$row["Email"]."</td></a>
-                <td><a href='$employeeMaster'>".$row["City"]."</td></a>
-                <td><a href='$employeeMaster'>".$row["State"]."</td></a>
-                <td><a href='$employeeMaster'>".$row["Assigned"]."</td></a>
+                while($row = mysqli_fetch_array($results))
+                {
+                  "<a href='$employeeMaster'>".$row["EmployeeID"]."</a>";
+                  echo "<tr>
+                  <td><a href='$employeeMaster'>".$row["First_Name"]."</td></a>
+                  <td><a href='$employeeMaster'>".$row["Last_Name"]."</td></a>
+                  <td><a href='$employeeMaster'>".$row["Phone"]."</td></a>
+                  <td><a href='$employeeMaster'>".$row["Email"]."</td></a>
+                  <td><a href='$employeeMaster'>".$row["City"]."</td></a>
+                  <td><a href='$employeeMaster'>".$row["State"]."</td></a>
+                  <td><a href='$employeeMaster'>".$row["Assigned"]."</td></a>
+                </tr>";
+                  }
+                }
+                else
+                {
+                  $db = mysqli_connect('localhost', 'root', '', 'Project1');
+                  $errors = array();
+                  $sql="SELECT * FROM Employees";
+                  $results= mysqli_query($db, $sql);
+                  $employeeMaster = 'employeeMaster.php';
 
-
-              </tr>";
-              }
+                  while($row = mysqli_fetch_array($results))
+                  {
+                    "<a href='$customerMaster'>".$row["EmployeeID"]."</a>";
+                    echo "<tr>
+                    <td><a href='$employeeMaster'>".$row["First_Name"]."</td></a>
+                    <td><a href='$employeeMaster'>".$row["Last_Name"]."</td></a>
+                    <td><a href='$employeeMaster'>".$row["Phone"]."</td></a>
+                    <td><a href='$employeeMaster'>".$row["Email"]."</td></a>
+                    <td><a href='$employeeMaster'>".$row["City"]."</td></a>
+                    <td><a href='$employeeMaster'>".$row["State"]."</td></a>
+                    <td><a href='$employeeMaster'>".$row["Assigned"]."</td></a>
+                  </tr>";
+                    }
+                }
               ?>
-
+              <script type="text/javascript">
+              jQuery(document).ready(function($) {
+                  $(".clickable-row").click(function() {
+                      window.location = $(this).data("href");
+                  });
+              });
+              </script>
           </table>
         </div>
       </div>
