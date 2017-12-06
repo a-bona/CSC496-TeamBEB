@@ -82,14 +82,13 @@
           <input class="pageEntry" type="text" name="city" value="<?=$row["City"]?>">
           <input class="pageEntry" type="text" name="state" value="<?=$row["State"]?>">
           <input class="pageEntry" type="text" name="county" value="<?=$row["County"]?>">
-              <select class="pageEntry" name="country" value="<?=$row["Country"]?>">
-                  <option value="canada">Canada</option>
-                  <option value="india">India</option>
-                  <option value="uk">United Kingdom</option>
-                </select>
+          <select class="pageEntry" name="country" value="<?=$row["Country"] ?>">
+            <option value='Canada' <?php echo ($row["Country"] == 'Canada')?'selected':''; ?>>Canada</option>
+            <option value='India' <?php echo ($row["Country"] == 'India')?'selected':''; ?>>India</option>
+            <option value='UK' <?php echo ($row["Country"] == 'UK')?'selected':''; ?>>United Kingdom</option>
+            </select>
           </div>
         </div>
-
         <div class="col-xs-10" class="Requirements">
           <h3 class="headerLabel">Requirements</h3>
           <div class="col-xs-2" id="firstColumnPC">
@@ -100,24 +99,22 @@
                 <label class="pageLabels" for="minimumPay">Minimum Pay Rate</label><br>
             </div>
             <div class="col-xs-2" id="entryColumn">
-                <select class="pageEntry" name="industryArea" value="<?=$row["IndustryArea"]?>">
-                        <option value="computerScience">Computer Science</option>
-                        <option value="technology">Technology</option>
-                        <option value="bussines">Bussines</option>
-                </select><br>
-                <select class="pageEntry" name="educationLevel" value="<?=$row["EducationLevel"]?>">
-                        <option value="collegeDegree">College Degree</option>
-                        <option value="masterDegree">Master Degree</option>
-                        <option value=""></option>
-                </select><br>
-                <select class="pageEntry" name="liftingAbility" value="<?=$row["LiftingAbility"]?>">
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="75">75</option>
-                        <option value="100">100</option>
-                </select><br>
-                <input class="pageEntry" type="text" name="desiredPay" value=" <?=$row["DesiredPay"]?>">
-                <input class="pageEntry" type="text" name="minPay" value=" <?=$row["MinPay"]?>">
+              <select class="pageEntry" name="industryArea" value="<?=$row["IndustryArea"] ?>">
+                <option value='Technology' <?php echo ($row["IndustryArea"] == 'Technology')?'selected':''; ?>>Technology</option>
+                <option value='Bussines' <?php echo ($row["IndustryArea"] == 'Bussines')?'selected':''; ?>>Bussines</option>
+              </select>
+              <select class="pageEntry" name="educationLevel" value="<?=$row["EducationLevel"] ?>">
+                <option value='College' <?php echo ($row["EducationLevel"] == 'College')?'selected':''; ?>>College</option>
+                <option value='Master' <?php echo ($row["EducationLevel"] == 'Master')?'selected':''; ?>>Master</option>
+              </select><br>
+              <select class="pageEntry" name="liftingAbility" value="<?=$row["LiftingAbility"] ?>">
+                <option value='25' <?php echo ($row["LiftingAbility"] == '25')?'selected':''; ?>>25</option>
+                <option value='50' <?php echo ($row["LiftingAbility"] == '50')?'selected':''; ?>>50</option>
+                <option value='75' <?php echo ($row["LiftingAbility"] == '75')?'selected':''; ?>>75</option>
+                <option value='100' <?php echo ($row["LiftingAbility"] == '100')?'selected':''; ?>>100</option>
+              </select><br>
+              <input class="pageEntry" type="text" name="desiredPay" value=" <?=$row["DesiredPay"]?>">
+              <input class="pageEntry" type="text" name="minPay" value=" <?=$row["MinPay"]?>">
             </div>
             <div class="col-xs-2" id="secondColumnPC">
               <label class="pageLabels" for="travelDistance">Travel Distance (mi)</label><br>
@@ -125,23 +122,23 @@
               <label class="pageLabels" for="weekends">Weekends</label><br>
             </div>
             <div class="col-xs-2" id="entryColumn">
-              <select class="pageEntry" name="travelDistance" value="<?=$row["TravelDistance"]?>">
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="75">75</option>
-                <option value="100">100</option>
-                </select><br>
-              <select class="pageEntry" name="weekdays" value="<?=$row["WeekDays"]?>">
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
+              <select class="pageEntry" name="travelDistance" value="<?=$row["TravelDistance"] ?>">
+                <option value='25' <?php echo ($row["TravelDistance"] == '25')?'selected':''; ?>>25</option>
+                <option value='50' <?php echo ($row["TravelDistance"] == '50')?'selected':''; ?>>50</option>
+                <option value='75' <?php echo ($row["TravelDistance"] == '75')?'selected':''; ?>>75</option>
+                <option value='100' <?php echo ($row["TravelDistance"] == '100')?'selected':''; ?>>100</option>
               </select><br>
-              <select class="pageEntry" name="weekends" value="<?=$row["Weekends"]?>">
-                  <option value="saturday">Saturday</option>
-                  <option value="sunday">Sunday</option>
-                </select>
+              <select class="pageEntry" name="weekdays" value="<?=$row["Weekdays"] ?>">
+                <option value='Monday' <?php echo ($row["Weekdays"] == 'Monday')?'selected':''; ?>>Monday</option>
+                <option value='Tuesday' <?php echo ($row["Weekdays"] == 'Tuesday')?'selected':''; ?>>Tuesday</option>
+                <option value='Wednesday' <?php echo ($row["Weekdays"] == 'Wednesday')?'selected':''; ?>>Wednesday</option>
+                <option value='Thursday' <?php echo ($row["Weekdays"] == 'Thursday')?'selected':''; ?>>Thursday</option>
+                <option value='Friday' <?php echo ($row["Weekdays"] == 'Friday')?'selected':''; ?>>Friday</option>
+              </select><br>
+              <select class="pageEntry" name="weekends" value="<?=$row["Weekends"] ?>">
+                <option value='Saturday' <?php echo ($row["Weekends"] == 'Saturday')?'selected':''; ?>>Saturday</option>
+                <option value='Sunday' <?php echo ($row["Weekends"] == 'Sunday')?'selected':''; ?>>Sunday</option>
+              </select>
                 </div>
                 <?php
                 }
