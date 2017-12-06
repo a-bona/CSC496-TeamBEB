@@ -79,7 +79,11 @@
             <input class="pageEntry" type="text" name="city" value=" <?=$row["City"] ?>">
             <input class="pageEntry" type="text" name="state" value=" <?=$row["State"] ?>">
             <input class="pageEntry" type="text" name="county" value=" <?=$row["County"] ?>">
-            <input class="pageEntry" type="text" name="country" value=" <?=$row["Country"] ?>">
+            <select class="pageEntry" name="country" value="<?=$row["Country"] ?>">
+              <option value='Canada' <?php echo ($row["Country"] == 'Canada')?'selected':''; ?>>Canada</option>
+              <option value='India' <?php echo ($row["Country"] == 'India')?'selected':''; ?>>India</option>
+              <option value='UK' <?php echo ($row["Country"] == 'UK')?'selected':''; ?>>United Kingdom</option>
+              </select>
           </div>
         </div>
         <?php
